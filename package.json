@@ -1,0 +1,17 @@
+{
+  "name": "nosaj-generate-invoice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "flags": "^0.1.3",
+    "html-pdf": "^2.0.1",
+    "immutable": "^3.8.1",
+    "mustache": "^2.2.1"
+  }
+}

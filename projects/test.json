@@ -1,0 +1,6 @@
+{
+  "template": "./templates/invoice/main.html",
+  "tags": {
+    "name": "A awesome project"
+  }
+}
