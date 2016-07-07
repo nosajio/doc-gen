@@ -20,6 +20,22 @@ function run() {
 }
 
 /**
+ * Generate
+ * @description
+ * @param {Immutable.Map} settings
+ */
+function generate(settings) {
+  let path = settings.get('projectFile');
+  openProjectFile(path)
+    .then(augmentInvoice)
+    .then(renderTemplate)
+    // .then(outputProject)
+    .then(renderPDF)
+    .then((project) => console.log('Success!!'.green))
+    .catch((err) => console.log(err));
+}
+
+/**
  * Setup
  * @description For taking the setup parts and using them to generate a settings map
  * @returns {Immutable.Map}
@@ -33,6 +49,8 @@ function setup() {
     projectFile: `./projects/${flags.get('project')}.json`,
   });
 }
+
+
 
 /**
  * Render Template
@@ -113,22 +131,6 @@ function augmentInvoice(project) {
     totalcost: totalCost,
   });
   return updatedProject;
-}
-
-/**
- * Generate
- * @description
- * @param {Immutable.Map} settings
- */
-function generate(settings) {
-  let path = settings.get('projectFile');
-  openProjectFile(path)
-    .then(augmentInvoice)
-    .then(renderTemplate)
-    // .then(outputProject)
-    .then(renderPDF)
-    .then((project) => console.log('Success!!'.green))
-    .catch((err) => console.log(err));
 }
 
 function outputProject(project) {
