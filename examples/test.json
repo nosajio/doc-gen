@@ -1,0 +1,35 @@
+{
+  "template": "invoice",
+  "name": "Test Project",
+  "tags": {
+    "title": "#122",
+    "payee": {
+      "name": "Jason Howmans",
+      "email": "jason@nosaj.io"
+    },
+    "payer": {
+      "name": "Some Bloke",
+      "email": "bloke@graft.co"
+    },
+    "payment": {
+      "bank": "PiggyBank co",
+      "name": "MR JASON HOWMANS",
+      "sortcode": "123421",
+      "accountno": "12345678"
+    },
+    "work": [
+      {
+        "task": "Make sparkles",
+        "cost": 10
+      },
+      {
+        "task": "Bear Grooming (2 days)",
+        "cost": 400.30
+      },
+      {
+        "task": "Debrief (30 mins)",
+        "cost": 0.95
+      }
+    ]
+  }
+}
