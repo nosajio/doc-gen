@@ -1,4 +1,9 @@
 node_modules
 .DS_Store
+
+# Project files
 out
 projects
+
+# Test files (may contain sensitive info)
+test.html

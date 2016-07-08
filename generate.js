@@ -29,7 +29,7 @@ function generate(settings) {
   openProjectFile(path)
     .then(augmentInvoice)
     .then(renderTemplate)
-    .then(generateTestFile)
+    // .then(generateTestFile)
     .then(renderPDF)
     .then(() => console.log('Success!!'.green))
     .catch((err) => console.error(colors.red(err)));
@@ -102,7 +102,8 @@ function openProjectFile(path) {
 function renderPDF(project) {
   let pdfOpts = {
     base: `file://${__dirname}/templates/${project.get('template')}/main.html`,
-    format: 'Letter',
+    width: '800px',
+    height: '1131px',
   };
   return new Promise(handler);
 
