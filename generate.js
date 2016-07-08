@@ -29,10 +29,10 @@ function generate(settings) {
   openProjectFile(path)
     .then(augmentInvoice)
     .then(renderTemplate)
-    // .then(outputProject)
+    .then(generateTestFile)
     .then(renderPDF)
-    .then((project) => console.log('Success!!'.green))
-    .catch((err) => console.log(err));
+    .then(() => console.log('Success!!'.green))
+    .catch((err) => console.error(colors.red(err)));
 }
 
 /**
@@ -51,6 +51,10 @@ function setup() {
 }
 
 
+
+function generateTestFile(project) {
+  fs.writeFile('./templates/invoice/test.html', project.get('html'));
+}
 
 /**
  * Render Template
@@ -96,7 +100,10 @@ function openProjectFile(path) {
  * @param {Immutable.Map} project
  */
 function renderPDF(project) {
-  let pdfOpts = {};
+  let pdfOpts = {
+    base: `file://${__dirname}/templates/${project.get('template')}/main.html`,
+    format: 'Letter',
+  };
   return new Promise(handler);
 
   function handler(resolve, reject) {
@@ -111,7 +118,7 @@ function renderPDF(project) {
 }
 
 function augmentInvoice(project) {
-  let todaysDate = moment();
+  let todaysDate = moment().format('ll'); // eg: Jul 8, 2016
   let totalCost = 0;
   project
     .getIn(['tags', 'work'])
@@ -133,7 +140,7 @@ function augmentInvoice(project) {
   return updatedProject;
 }
 
-function outputProject(project) {
+function logProject(project) {
   console.log(project);
   return project;
 }

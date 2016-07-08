@@ -8,20 +8,20 @@
   </head>
   <body>
     <header class="invoice-head">
-      <h1 class="invoice-title">Invoice <span class="invoice-id">{{title}}</span></h1>
-      <h2 class="invoice-subtitle">{{date}}</h2>
+      <h1 class="invoice-title">Invoice <span class="invoice-id">#122</span></h1>
+      <h2 class="invoice-subtitle">Jul 8, 2016</h2>
     </header>
 
     <div class="invoice-from-to">
       <div class="invoice-from">
         <h3>From</h3>
-        <p class="invoice-from-name">{{payee.name}}</p>
-        <p class="invoice-from-email">{{payee.email}}</p>
+        <p class="invoice-from-name">Jason Howmans</p>
+        <p class="invoice-from-email">jason@nosaj.io</p>
       </div>
       <div class="invoice-to">
         <h3>To</h3>
-        <p class="invoice-to-name">{{payer.name}}</p>
-        <p class="invoice-to-email">{{payer.email}}</p>
+        <p class="invoice-to-name">Some Bloke</p>
+        <p class="invoice-to-email">bloke@graft.co</p>
       </div>
     </div>
 
@@ -33,35 +33,36 @@
             <th>Cost</th>
           </tr>
         </thead>
-        {{#work}}
           <tr>
-            <td>{{task}}</td>
-            <td>&pound;{{cost}}</td>
+            <td>Make sparkles</td>
+            <td>&pound;10.00</td>
           </tr>
-        {{/work}}
+          <tr>
+            <td>Bear Grooming (2 days)</td>
+            <td>&pound;400.30</td>
+          </tr>
+          <tr>
+            <td>Debrief (30 mins)</td>
+            <td>&pound;0.95</td>
+          </tr>
         <tfoot>
           <tr>
             <td>Total</td>
-            <td>&pound;{{totalcost}}</td>
+            <td>&pound;411.25</td>
           </tr>
         </tfoot>
       </table>
     </div>
-    {{#payment}}
       <h3>Payment Details</h3>
       <dl class="invoice-payment">
         <dt>Bank</dt>
-        <dd>{{payment.bank}}</dd>
+        <dd>PiggyBank co</dd>
         <dt>Payee Name</dt>
-        <dd>{{payment.name}}</dd>
+        <dd>MR JASON HOWMANS</dd>
         <dt>Sort Code</dt>
-        <dd>{{payment.sortcode}}</dd>
+        <dd>123421</dd>
         <dt>Account Number</dt>
-        <dd>{{payment.accountno}}</dd>
+        <dd>12345678</dd>
       </dl>
-    {{/payment}}
-    {{#terms}}
-      <div class="invoice-terms">{{terms}}</div>
-    {{/terms}}
   </body>
 </html>
