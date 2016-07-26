@@ -2,66 +2,59 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Invoice</title>
+    <title>Estimate</title>
     <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/invoice.css" media="all">
+    <link rel="stylesheet" href="./assets/estimate.css" media="all">
   </head>
   <body>
-    <header class="invoice-head">
-      <h1 class="invoice-title">Invoice <span class="invoice-id">{{title}}</span></h1>
-      <h2 class="invoice-subtitle">{{date}}</h2>
+    <header class="estimate-head">
+      <div class="estimate-head__topline">
+        From the desk of Jason Howmans: Estimate #{{number}}, created {{date}}
+      </div>
+      <h1 class="estimate-title">{{title}}</h1>
     </header>
 
-    <div class="invoice-from-to">
-      <div class="invoice-from">
+    <div class="estimate-from-to">
+      <div class="estimate-from">
         <h3>From</h3>
-        <p class="invoice-from-name">{{payee.name}}</p>
-        <p class="invoice-from-email">{{payee.email}}</p>
+        <p class="estimate-from-name">{{from.name}}</p>
+        <p class="estimate-from-email">{{from.email}}</p>
       </div>
-      <div class="invoice-to">
+      <div class="estimate-to">
         <h3>To</h3>
-        <p class="invoice-to-name">{{payer.name}}</p>
-        <p class="invoice-to-email">{{payer.email}}</p>
+        <p class="estimate-to-name">{{to.name}}</p>
+        <p class="estimate-to-email">{{to.email}}</p>
       </div>
     </div>
 
-    <div class="invoice-body">
-      <table class="invoice-table">
-        <thead>
-          <tr>
-            <th>Task</th>
-            <th>Cost</th>
-          </tr>
-        </thead>
-        {{#work}}
-          <tr>
-            <td>{{task}}</td>
-            <td>&pound;{{cost}}</td>
-          </tr>
-        {{/work}}
-        <tfoot>
-          <tr>
-            <td>Total</td>
-            <td>&pound;{{totalcost}}</td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-    {{#payment}}
-      <h3>Payment Details</h3>
-      <dl class="invoice-payment">
-        <dt>Bank</dt>
-        <dd>{{payment.bank}}</dd>
-        <dt>Payee Name</dt>
-        <dd>{{payment.name}}</dd>
-        <dt>Sort Code</dt>
-        <dd>{{payment.sortcode}}</dd>
-        <dt>Account Number</dt>
-        <dd>{{payment.accountno}}</dd>
-      </dl>
-    {{/payment}}
-    {{#terms}}
-      <div class="invoice-terms">{{terms}}</div>
-    {{/terms}}
+    <section class="estimate-body">
+      <header class="estimate-work-head">
+        <h2>Work</h2>
+      </header>
+      {{#work}}
+      <div class="estimate-task">
+        <header class="estimate-task__head">
+          <h1>{{task}}</h1>
+          <span class="task-hours">{{hours}} hours</span>
+        </header>
+        <div class="estimate-task__description">
+          {{#description}}
+            {{{description}}}
+          {{/description}}
+        </div>
+      </div>
+      {{/work}}
+    </section>
+
+    <section class="estimate-totals">
+      <div class="total-hours">
+        <div class="total__label">Total time</div>
+        <div class="total__quantity">{{total.hours}} hours <span class="sub">{{total.days}} days</span></div>
+      </div>
+      <div class="total-cost">
+        <div class="total__label">Total cost</div>
+        <div class="total__quantity">&pound;{{total.cost}} <span class="sub">@ &pound;{{dayrate}}/day</span></div>
+      </div>
+    </section>
   </body>
 </html>

@@ -28,6 +28,7 @@ function generate(settings) {
   openProjectFile(path)
     .then(decorateData)
     .then(renderTemplate)
+    .then(logProject)
     .then(generateTestFile)
     .then(renderPDF)
     .then(() => console.log('Success!!'.green))
@@ -50,14 +51,18 @@ function setup() {
 }
 
 
-
+/**
+ * Generate Test FIle
+ * For making saving a html file to disk so that it can be designed in the browser
+ * @param {Immutable.Map} project
+ */
 function generateTestFile(project) {
   let relAssets = `../templates/${project.get('template')}/assets`;
-  project = project.set('html',
+  let newAssets = project.set('html',
     project.get('html').replace('./assets', relAssets));
   fs.writeFile(`${runtime.testOutput}/${project.get('template')}.html`,
-    project.get('html'));
-  return;
+    newAssets.get('html'));
+  return project;
 }
 
 /**

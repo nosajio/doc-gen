@@ -1,0 +1,151 @@
+/**
+ *
+ * Colours:
+ *  Grey => #8b8b8b
+ *
+ */
+
+:root {
+  font: 18px/1.5 'Space Mono', monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: 3rem;
+
+  overflow: auto;
+  zoom: 1;
+}
+
+h1, h2, h3, h4, p { margin: 0; }
+
+
+.estimate-head,
+.estimate-from-to {
+  margin-bottom: 3rem;
+  overflow: auto;
+  zoom: 1;
+}
+
+.estimate-head {
+
+}
+
+  .estimate-head__topline {
+    font-size: 15px;
+  }
+
+  .estimate-title {
+    font-size: 2rem;
+    color: #4fc740;
+  }
+
+.estimate-from-to {
+
+}
+
+  .estimate-from-to h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #8b8b8b;
+  }
+
+  .estimate-from-to .estimate-from {
+    width: 50%;
+    float: left;
+  }
+
+  .estimate-from-to .estimate-to {
+    width: 50%;
+    float: left;
+    text-align: right;
+  }
+
+  .estimate-from-name,
+  .estimate-to-name { font-weight: 700; }
+
+  .estimate-from-email,
+  .estimate-to-email {  }
+
+.estimate-body {
+  margin-bottom: 5rem;
+}
+
+.estimate-work-head {
+  width: 100%;
+  margin-bottom: 30px;
+
+  border-bottom: 3px solid black;
+}
+
+.estimate-work-head h2 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.estimate-task {
+  margin-bottom: 2rem;
+}
+
+.estimate-task__head {
+  overflow: auto;
+  zoom: 1;
+  margin-bottom: 1rem;
+}
+
+.estimate-task__head h1 {
+  float: left;
+  font-size: 19px;
+}
+
+.task-hours {
+  display: block;
+  float: right;
+  font-size: 16px;
+}
+
+.estimate-task__description {
+  font-size: 17px;
+}
+
+
+.estimate-totals {
+  display: block;
+}
+
+  .total__label,
+  .total__quantity {
+    display: block;
+    width: 50%;
+    float: left;
+    font-size: 1.2rem;
+    text-align: right;
+  }
+
+  .total__quantity {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .total-hours,
+  .total-cost {
+    margin-left: auto;
+    overflow: auto;
+    zoom: 1;
+    width: 60%;
+  }
+
+  .total-cost { margin-top: 20px; }
+
+.sub {
+  font-size: 17px;
+  display: block;
+  font-weight: 400;
+}
