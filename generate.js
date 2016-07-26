@@ -1,7 +1,6 @@
 'use strict';
 
 const fs = require('fs');
-const moment = require('moment');
 const Immutable = require('immutable');
 const mustache = require('mustache');
 const colors = require('colors');
@@ -10,6 +9,7 @@ const pdf = require('html-pdf');
 
 const runtime = {
   pdfOutput: './out',
+  testOutput: './test',
 };
 
 run();
@@ -21,15 +21,14 @@ function run() {
 
 /**
  * Generate
- * @description
  * @param {Immutable.Map} settings
  */
 function generate(settings) {
   let path = settings.get('projectFile');
   openProjectFile(path)
-    .then(augmentInvoice)
+    .then(decorateData)
     .then(renderTemplate)
-    // .then(generateTestFile)
+    .then(generateTestFile)
     .then(renderPDF)
     .then(() => console.log('Success!!'.green))
     .catch((err) => console.error(colors.red(err)));
@@ -37,7 +36,7 @@ function generate(settings) {
 
 /**
  * Setup
- * @description For taking the setup parts and using them to generate a settings map
+ * For taking the setup parts and using them to generate a settings map
  * @returns {Immutable.Map}
  */
 function setup() {
@@ -53,12 +52,16 @@ function setup() {
 
 
 function generateTestFile(project) {
-  fs.writeFile('./templates/invoice/test.html', project.get('html'));
+  let relAssets = `../templates/${project.get('template')}/assets`;
+  project = project.set('html',
+    project.get('html').replace('./assets', relAssets));
+  fs.writeFile(`${runtime.testOutput}/${project.get('template')}.html`,
+    project.get('html'));
+  return;
 }
 
 /**
  * Render Template
- * @description
  * @param {Immutable.Map} settings
  */
 function renderTemplate(project) {
@@ -77,7 +80,7 @@ function renderTemplate(project) {
 
 /**
  * Open Project File
- * @description Opens a passed project json file and
+ * Opens a passed project json file and
  * @param {Immutable.Map} settings
  * @returns {Promise.<Immutable.Map, Error>}
  */
@@ -96,7 +99,7 @@ function openProjectFile(path) {
 
 /**
  * Render PDF
- * @description Takes the html property of a project and generates a pdf
+ * Takes the html property of a project and generates a pdf
  * @param {Immutable.Map} project
  */
 function renderPDF(project) {
@@ -118,27 +121,14 @@ function renderPDF(project) {
   }
 }
 
-function augmentInvoice(project) {
-  let todaysDate = moment().format('ll'); // eg: Jul 8, 2016
-  let totalCost = 0;
-  project
-    .getIn(['tags', 'work'])
-    .forEach((it) => totalCost += it.get('cost'));
-
-  let work = project
-    .getIn(['tags', 'work'])
-    .map((it) => {
-      let updated = it.set('cost', it.get('cost').toFixed(2));
-      return updated;
-    });
-
-  project = project.mergeIn(['tags', 'work'], work);
-
-  let updatedProject = project.mergeIn(['tags'], {
-    date: todaysDate,
-    totalcost: totalCost,
-  });
-  return updatedProject;
+function decorateData(project) {
+  const template = project.get('template');
+  try {
+    const decorate = require(`./decorate/${template}.js`);
+    return decorate(project);
+  } catch (e) {
+    return Promise.reject(e);
+  }
 }
 
 function logProject(project) {

@@ -1,0 +1,155 @@
+/**
+ *
+ *
+ * Colours:
+ *  Grey => #8b8b8b
+ *
+ */
+
+:root {
+  font: 18px/1.5 'Space Mono', monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: 3rem;
+
+  overflow: auto;
+  zoom: 1;
+}
+
+h1, h2, h3, h4, p { margin: 0; }
+
+
+.invoice-head,
+.invoice-from-to {
+  margin-bottom: 3rem;
+  overflow: auto;
+  zoom: 1;
+}
+
+.invoice-head {
+
+}
+
+  .invoice-title {
+    font-size: 1.75rem;
+    text-align: right;
+    color: #4fc740;
+  }
+
+  .invoice-id {
+    color: #98c293;
+  }
+
+  .invoice-subtitle {
+    font-size: 1rem;
+    color: #98c293;
+    text-align: right;
+  }
+
+.invoice-from-to {
+
+}
+
+  .invoice-from-to h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #8b8b8b;
+  }
+
+  .invoice-from-to .invoice-from {
+    width: 50%;
+    float: left;
+  }
+
+  .invoice-from-to .invoice-to {
+    width: 50%;
+    float: left;
+    text-align: right;
+  }
+
+  .invoice-from-name,
+  .invoice-to-name { font-weight: 700; }
+
+  .invoice-from-email,
+  .invoice-to-email {  }
+
+.invoice-body {
+  margin-bottom: 5rem;
+}
+
+  .invoice-table {
+    width: 100%;
+    border-bottom: 3px solid black;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+
+  .invoice-table thead {
+    text-align: left;
+  }
+
+    .invoice-table thead tr th {
+      border-bottom: 3px solid black;
+    }
+
+    .invoice-table thead tr th,
+    .invoice-table tfoot tr td,
+    .invoice-table tr td {
+      padding: 5px 8px;
+    }
+
+    .invoice-table tfoot tr td {
+      background: #e4e4e4;
+      font-weight: 700;
+    }
+
+    .invoice-table tfoot tr td:first-child {
+      background: transparent;
+      float: right;
+    }
+
+    .invoice-table tr {
+
+    }
+
+    .invoice-table tr td {
+      padding: 5px 8px;
+    }
+
+
+.invoice-payment {
+  width: 100%;
+  font-size: .8rem
+}
+
+  .invoice-payment dt {
+    display: block;
+    margin: 0;
+    width: 35%;
+    float: left;
+    padding: 4px;
+  }
+
+  .invoice-payment dd {
+    display: block;
+    margin: 0;
+    width: 65%;
+    float: left;
+    padding: 4px;
+  }
+
+.invoice-terms {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
