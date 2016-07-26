@@ -5,6 +5,8 @@ Example:
 Where `my-project-name` is the name of the .json settings file contained in the projects directory.
 
 ## Structure of a `project file`
+Note that the `tags` Object gets passed to Mustache to render the template with.
+
 ```json
 {
   "template": "invoice",
