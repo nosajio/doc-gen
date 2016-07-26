@@ -26,12 +26,16 @@ function run() {
 function generate(settings) {
   let path = settings.get('projectFile');
   openProjectFile(path)
+    .then((project) => {
+      console.log(`Generating document from file: ${path}`);
+      return project;
+    })
     .then(decorateData)
     .then(renderTemplate)
-    .then(logProject)
+    // .then(logProject)
     .then(generateTestFile)
     .then(renderPDF)
-    .then(() => console.log('Success!!'.green))
+    .then((project) => console.log(`PDF Generated [${project.get('pdfFile')}]`.green))
     .catch((err) => console.error(colors.red(err)));
 }
 
@@ -58,10 +62,9 @@ function setup() {
  */
 function generateTestFile(project) {
   let relAssets = `../templates/${project.get('template')}/assets`;
-  let newAssets = project.set('html',
-    project.get('html').replace('./assets', relAssets));
-  fs.writeFile(`${runtime.testOutput}/${project.get('template')}.html`,
-    newAssets.get('html'));
+  let newAssets = project.set('html', project.get('html').replace('./assets', relAssets));
+  let testPath = `${runtime.testOutput}/${project.get('template')}.html`;
+  fs.writeFile(testPath, newAssets.get('html'), () => console.log(`Made test file ${testPath}`.green));
   return project;
 }
 
@@ -113,12 +116,14 @@ function renderPDF(project) {
     width: '800px',
     height: '1131px',
   };
+  let pdfFile = `${runtime.pdfOutput}/${project.get('template')}s/${project.get('name')}.pdf`;
+  project = project.set('pdfFile', pdfFile);
   return new Promise(handler);
 
   function handler(resolve, reject) {
     pdf
       .create(project.get('html'), pdfOpts)
-      .toFile(`${runtime.pdfOutput}/${project.get('name')}.pdf`,
+      .toFile(pdfFile,
         (err, res) => {
           if (err) return reject(err);
           resolve(project);
