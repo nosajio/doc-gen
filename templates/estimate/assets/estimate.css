@@ -18,7 +18,7 @@
 
 body {
   position: relative;
-  margin: 3rem;
+  margin: 2rem;
 
   overflow: auto;
   zoom: 1;
@@ -44,27 +44,27 @@ h1, h2, h3, h4, p { margin: 0; }
 
   .estimate-title {
     font-size: 2rem;
-    color: #4fc740;
+    color: #2e2ef9;
   }
 
 .estimate-from-to {
-
+  font-size: 16px;
 }
 
   .estimate-from-to h3 {
-    font-size: 1rem;
+    font-size: 1em;
     text-transform: uppercase;
     color: #8b8b8b;
   }
 
   .estimate-from-to .estimate-from {
-    width: 50%;
+    width: 40%;
     float: left;
   }
 
   .estimate-from-to .estimate-to {
-    width: 50%;
-    float: left;
+    width: 40%;
+    float: right;
     text-align: right;
   }
 
@@ -86,23 +86,27 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 
 .estimate-work-head h2 {
+  display: inline-block;
+  padding-right: 10px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 700;
+  background: white;
+  transform: translateY(50%);
 }
 
 .estimate-task {
-  margin-bottom: 2rem;
+  margin-bottom: 30px;
 }
 
 .estimate-task__head {
   overflow: auto;
   zoom: 1;
-  margin-bottom: 1rem;
 }
 
 .estimate-task__head h1 {
   float: left;
   font-size: 19px;
+  color: #2e2ef9;
 }
 
 .task-hours {
@@ -112,7 +116,10 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 
 .estimate-task__description {
-  font-size: 17px;
+  margin-top: 10px;
+  font-size: 16px;
+  width: 75%;
+  margin-right: auto;
 }
 
 
@@ -123,13 +130,14 @@ h1, h2, h3, h4, p { margin: 0; }
   .total__label,
   .total__quantity {
     display: block;
-    width: 50%;
+    width: 40%;
     float: left;
-    font-size: 1.2rem;
+    font-size: 18px;
     text-align: right;
   }
 
   .total__quantity {
+    width: 60%;
     font-size: 1.5rem;
     font-weight: 700;
   }
@@ -139,7 +147,7 @@ h1, h2, h3, h4, p { margin: 0; }
     margin-left: auto;
     overflow: auto;
     zoom: 1;
-    width: 60%;
+    width: 45%;
   }
 
   .total-cost { margin-top: 20px; }

@@ -9,7 +9,7 @@
   <body>
     <header class="estimate-head">
       <div class="estimate-head__topline">
-        From the desk of Jason Howmans: Estimate #{{number}}, created {{date}}
+        From the desk of Jason Howmans. Estimate #{{number}}. Created {{date}}.
       </div>
       <h1 class="estimate-title">{{title}}</h1>
     </header>
@@ -37,11 +37,9 @@
           <h1>{{task}}</h1>
           <span class="task-hours">{{hours}} hours</span>
         </header>
-        <div class="estimate-task__description">
-          {{#description}}
-            {{{description}}}
-          {{/description}}
-        </div>
+        {{#description}}
+          <div class="estimate-task__description">{{{description}}}</div>
+        {{/description}}
       </div>
       {{/work}}
     </section>
@@ -49,7 +47,7 @@
     <section class="estimate-totals">
       <div class="total-hours">
         <div class="total__label">Total time</div>
-        <div class="total__quantity">{{total.hours}} hours <span class="sub">{{total.days}} days</span></div>
+        <div class="total__quantity">{{total.hours}} hours <span class="sub">that's {{total.days}} days</span></div>
       </div>
       <div class="total-cost">
         <div class="total__label">Total cost</div>

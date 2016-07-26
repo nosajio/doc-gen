@@ -43,7 +43,7 @@ function calculateTotals(project) {
 
   return Immutable.fromJS({
     hours: totalHrs,
-    days: totalDays,
+    days: Math.round(totalDays*10)/10,
     cost: (totalDays * dayRate).toFixed(2),
   });
 }
