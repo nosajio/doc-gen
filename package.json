@@ -1,8 +1,8 @@
 {
-  "name": "nosaj-generate-invoice",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "docgen",
+  "version": "1.0.1",
+  "description": "For generating documents (pdf's) from webpages (html,css)",
+  "main": "generate.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
