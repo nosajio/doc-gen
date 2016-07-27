@@ -29,21 +29,19 @@ h1, h2, h3, h4, p { margin: 0; }
 
 .estimate-head,
 .estimate-from-to {
-  margin-bottom: 3rem;
+  margin-bottom: 30px;
   overflow: auto;
   zoom: 1;
 }
 
-.estimate-head {
-
-}
+.estimate-from-to { margin-bottom: 40px }
 
   .estimate-head__topline {
     font-size: 15px;
   }
 
   .estimate-title {
-    font-size: 2rem;
+    font-size: 30px;
     color: #2e2ef9;
   }
 
@@ -75,7 +73,7 @@ h1, h2, h3, h4, p { margin: 0; }
   .estimate-to-email {  }
 
 .estimate-body {
-  margin-bottom: 5rem;
+  margin-bottom: 50px;
 }
 
 .estimate-work-head {
@@ -117,8 +115,8 @@ h1, h2, h3, h4, p { margin: 0; }
 
 .estimate-task__description {
   margin-top: 10px;
-  font-size: 16px;
-  width: 75%;
+  font-size: 15px;
+  width: 77%;
   margin-right: auto;
 }
 
@@ -132,13 +130,13 @@ h1, h2, h3, h4, p { margin: 0; }
     display: block;
     width: 40%;
     float: left;
-    font-size: 18px;
+    font-size: 16px;
     text-align: right;
   }
 
   .total__quantity {
     width: 60%;
-    font-size: 1.5rem;
+    font-size: 28px;
     font-weight: 700;
   }
 
@@ -153,7 +151,16 @@ h1, h2, h3, h4, p { margin: 0; }
   .total-cost { margin-top: 20px; }
 
 .sub {
-  font-size: 17px;
+  font-size: 15px;
   display: block;
   font-weight: 400;
+}
+
+.estimate-foot {
+  display: block;
+  margin-top: 50px;
+  color: rgb(107, 107, 107);
+  text-align: center;
+  width: 100%;
+  font-size: 15px;
 }
