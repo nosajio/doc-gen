@@ -39,19 +39,20 @@ h1, h2, h3, h4, p { margin: 0; }
 
 }
 
+  .invoice-head__topline {
+    font-size: 15px;
+  }
+
   .invoice-title {
     font-size: 1.75rem;
     text-align: right;
-    color: #4fc740;
+    color: #2e2ef9;
   }
 
-  .invoice-id {
-    color: #98c293;
-  }
+  .invoice-id {}
 
   .invoice-subtitle {
     font-size: 1rem;
-    color: #98c293;
     text-align: right;
   }
 
