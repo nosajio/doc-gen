@@ -19,8 +19,6 @@
 
 body {
   position: relative;
-  margin: 2rem;
-
   overflow: auto;
   zoom: 1;
 }

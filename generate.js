@@ -133,6 +133,7 @@ function renderPDF(project) {
     base: `file://${__dirname}/templates/${project.get('template')}/main.html`,
     width: '800px', // size is about that of a 'US letter'
     height: '1131px',
+    border: '32px',
   };
   let pdfFile = `${runtime.pdfOutput}/${project.get('template')}s/${project.get('name')}.pdf`;
   project = project.set('pdfFile', pdfFile);
