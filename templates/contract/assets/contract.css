@@ -1,0 +1,111 @@
+/**
+ *
+ * Colours:
+ *  Grey => #8b8b8b
+ *  Blue => #2e2ef9
+ *
+ */
+
+:root {
+  font: 19px/1.5 'Space Mono', monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: 2rem;
+
+  overflow: auto;
+  zoom: 1;
+}
+
+h1, h2, h3, h4, p { margin: 0; }
+
+
+
+.contract-head,
+.contract-from-to {
+  margin-bottom: 30px;
+  overflow: auto;
+  zoom: 1;
+}
+
+.contract-from-to { margin-bottom: 40px }
+
+  .contract-head__topline {
+    font-size: 15px;
+  }
+
+  .contract-title {
+    font-size: 30px;
+    color: #2e2ef9;
+  }
+
+.contract-from-to {
+  font-size: 16px;
+}
+
+  .contract-from-to h3 {
+    font-size: 1em;
+    color: #2e2ef9;
+  }
+
+  .contract-from-to .contract-from {
+  }
+
+  .contract-from-to .contract-to {
+    margin-top: 20px
+  }
+
+  .contract-from-name,
+  .contract-to-name { font-weight: 700; }
+
+  .contract-from-email,
+  .contract-to-email {  }
+
+
+.contract-body {
+  margin-top: 50px;
+}
+
+  .contract-body p {
+    margin: 20px 0;
+    font-size: 16px;
+  }
+
+  .contract-body h1,
+  .contract-body h2 {
+    font-size: 1.4rem;
+    margin-top: 2em;
+    color: #2e2ef9;
+  }
+
+  .contract-body h3 {
+    margin-top: 1.25em;
+  }
+
+
+.signature-party + .signature-party {
+  margin-top: 50px;
+}
+
+.dots {
+  width: 100%;
+  line-height: 0;
+  font-size: 16px;
+  margin-top: 50px;
+}
+
+
+.contract-signatures {
+  border: 8px solid black;
+  margin-top: 70px;
+  padding: 50px;
+
+}

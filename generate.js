@@ -76,14 +76,32 @@ function renderTemplate(project) {
   return new Promise(handler);
   function handler(resolve, reject) {
     let projectEntry = `./templates/${project.get('template')}/main.html`;
+    let projectPartials = `./templates/${project.get('template')}/partials`;
+    let partials = getPartialsIn(projectPartials);
     fs.readFile(projectEntry, 'utf8', (err, data) => {
       if (err) reject(err);
       let tags = project.get('tags').toJS()
-      let html = mustache.render(data, tags);
+      let html = mustache.render(data, tags, partials);
       let template = project.set('html', html);
       resolve(template);
     });
   }
+}
+
+/**
+ * Get Partials In...
+ * @param {String} dir
+ * @returns {Object} partials - empty if there are no partials
+ */
+function getPartialsIn(dir) {
+  var partials = {};
+  try {
+    let partialsDir = fs.readdirSync(dir);
+    partialsDir.forEach((partial) => {
+      partials[partial] = fs.readFileSync(`${dir}/${partial}`, 'utf8');
+    });
+  } catch(e) {}
+  return partials;
 }
 
 /**
@@ -113,7 +131,7 @@ function openProjectFile(path) {
 function renderPDF(project) {
   let pdfOpts = {
     base: `file://${__dirname}/templates/${project.get('template')}/main.html`,
-    width: '800px',
+    width: '800px', // size is about that of a 'US letter'
     height: '1131px',
   };
   let pdfFile = `${runtime.pdfOutput}/${project.get('template')}s/${project.get('name')}.pdf`;
@@ -131,6 +149,12 @@ function renderPDF(project) {
   }
 }
 
+/**
+ * Decorate Data
+ * Looks for a decorator file in ./decorate and runs the exported function
+ * @param {Immutable.Map} project
+ * @returns {Promise}
+ */
 function decorateData(project) {
   const template = project.get('template');
   try {
