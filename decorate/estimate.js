@@ -7,8 +7,10 @@ const hoursInADay = 7;
 module.exports = invoiceDecorator;
 
 function invoiceDecorator(project) {
+  if (project.getIn(['tags', 'dayrate'])) {
+    project = project.setIn(['tags', 'total'], calculateTotals(project));
+  }
   project = project.setIn(['tags', 'date'], moment().format('ll'));
-  project = project.setIn(['tags', 'total'], calculateTotals(project));
   return project;
 }
 

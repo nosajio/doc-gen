@@ -21,7 +21,7 @@ function invoiceDecorator(project) {
 
   let updatedProject = project.mergeIn(['tags'], {
     date: todaysDate,
-    totalcost: totalCost,
+    totalcost: totalCost.toFixed(2),
   });
   return updatedProject;
 }

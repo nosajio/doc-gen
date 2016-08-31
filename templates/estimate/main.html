@@ -35,7 +35,7 @@
       <div class="estimate-task">
         <header class="estimate-task__head">
           <h1>{{task}}</h1>
-          <span class="task-hours">{{hours}} hours</span>
+          {{#hours}}<span class="task-hours">{{hours}} hours</span>{{/hours}}
         </header>
         {{#description}}
           <div class="estimate-task__description">{{{description}}}</div>
@@ -45,6 +45,7 @@
     </section>
 
     <section class="estimate-totals">
+      {{#dayRate}}
       <div class="total-hours">
         <div class="total__label">Total time</div>
         <div class="total__quantity">{{total.hours}} hours <span class="sub">that's {{total.days}} days</span></div>
@@ -53,6 +54,18 @@
         <div class="total__label">Total cost</div>
         <div class="total__quantity">&pound;{{total.cost}} <span class="sub">@ &pound;{{dayrate}}/day</span></div>
       </div>
+      {{/dayRate}}
+      {{#projectPrice}}
+      <div class="total-cost">
+        <div class="total__label">Total cost</div>
+        <div class="total__quantity">&pound;{{projectPrice.total}}</div>
+      </div>
+      {{/projectPrice}}
+      {{#note}}
+      <div class="note">
+        <p>{{note}}</p>
+      </div>
+      {{/note}}
     </section>
 
     <footer class="estimate-foot">

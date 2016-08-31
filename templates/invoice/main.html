@@ -9,10 +9,9 @@
   <body>
     <header class="invoice-head">
       <div class="invoice-head__topline">
-        From the desk of Jason Howmans.
+        From the desk of Jason Howmans. Invoice #{{number}}. Created {{date}}
       </div>
-      <h1 class="invoice-title">Invoice <span class="invoice-id">{{title}}</span></h1>
-      <h2 class="invoice-subtitle">{{date}}</h2>
+      <h1 class="invoice-title">{{title}}</h1>
     </header>
 
     <div class="invoice-from-to">
@@ -66,5 +65,9 @@
     {{#terms}}
       <div class="invoice-terms">{{terms}}</div>
     {{/terms}}
+
+    <footer class="invoice-foot">
+      For questions or comments, email me on <a href="mailto:jason@nosaj.io?subject=About Estimate #{{number}}">jason@nosaj.io</a>.
+    </footer>
   </body>
 </html>
