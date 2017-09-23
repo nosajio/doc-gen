@@ -7,7 +7,7 @@
  */
 
 :root {
-  font: 18px/1.5 'Space Mono', monospace;
+  font: 17px/1.5 'Space Mono', monospace;
 }
 
 *,
@@ -26,6 +26,15 @@ body {
 h1, h2, h3, h4, p { margin: 0; }
 
 
+.nosaj-logo {
+  width: 50px;
+  /* height = width x 0..810734463 */
+  height: 41px; 
+  background: url('./nosaj.svg') no-repeat;
+  background-size: 100% auto;
+  margin: 0 auto 10px;
+}
+
 .estimate-head,
 .estimate-from-to {
   margin-bottom: 30px;
@@ -36,21 +45,27 @@ h1, h2, h3, h4, p { margin: 0; }
 .estimate-from-to { margin-bottom: 40px }
 
   .estimate-head__topline {
-    font-size: 15px;
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
   }
 
   .estimate-title {
-    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
     color: #2e2ef9;
   }
 
 .estimate-from-to {
   font-size: 16px;
+  overflow: hidden;
 }
 
   .estimate-from-to h3 {
-    font-size: 1em;
+    font-size: 14px;
     text-transform: uppercase;
+    font-weight: 400;
     color: #8b8b8b;
   }
 
@@ -102,14 +117,16 @@ h1, h2, h3, h4, p { margin: 0; }
 
 .estimate-task__head h1 {
   float: left;
-  font-size: 19px;
+  font-size: 16px;
   color: #2e2ef9;
 }
 
 .task-hours {
   display: block;
+  padding: 4px 15px;
   float: right;
-  font-size: 16px;
+  font-size: 14px;
+  background: #ececec;
 }
 
 .estimate-task__description {
