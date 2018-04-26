@@ -7,7 +7,7 @@
  */
 
 :root {
-  font: 18px/1.5 'Space Mono', monospace;
+  font: 18px/1.5 'Fira Mono', monospace;
 }
 
 *,
@@ -29,6 +29,7 @@ h1, h2, h3, h4, p { margin: 0; }
 .invoice-head,
 .invoice-from-to {
   margin-bottom: 3rem;
+  font-size: .8rem;
   overflow: auto;
   zoom: 1;
 }
@@ -59,9 +60,10 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 
   .invoice-from-to h3 {
-    font-size: 1rem;
-    text-transform: uppercase;
-    color: #8b8b8b;
+    font-size: 0.8rem;
+    text-transform: lowercase;
+    color: #b0b0b0;
+    font-weight: normal;
   }
 
   .invoice-from-to .invoice-from {
