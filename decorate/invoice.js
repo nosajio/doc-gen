@@ -5,6 +5,7 @@ module.exports = invoiceDecorator;
 
 function invoiceDecorator(project) {
   let todaysDate = moment().format('ll'); // eg: Jul 8, 2016
+  const currency = project.get('currency') === 'usd' ? '$' : '£';
   let totalCost = 0;
   project
     .getIn(['tags', 'work'])
@@ -22,6 +23,7 @@ function invoiceDecorator(project) {
   let updatedProject = project.mergeIn(['tags'], {
     date: todaysDate,
     totalcost: totalCost.toFixed(2),
+    currency,
   });
   return updatedProject;
 }
